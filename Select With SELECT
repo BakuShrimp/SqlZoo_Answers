@@ -41,6 +41,14 @@ WHERE w1.continent = w2.continent AND w1.name != w2.name
 )
 
 #8
+SELECT continent, name 
+FROM world
+WHERE name IN (
+SELECT MIN(name)
+FROM world
+GROUP BY continent
+)
+-- Got help from: https://github.com/ritakalach/sqlzoo-solutions?tab=readme-ov-file#5-select-within-select
 
 #9
 
