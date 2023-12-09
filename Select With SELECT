@@ -22,6 +22,10 @@ SELECT name, population FROM world
 WHERE population > (SELECT population FROM world WHERE name = 'Canada') AND population <(SELECT population FROM world WHERE name = 'Poland')
 
 #5 
+SELECT name, CONCAT(ROUND(population/(SELECT population FROM world
+                          WHERE name = 'Germany')*100,0),'%') AS percentage FROM world
+WHERE continent = 'Europe'
+-- Ref: https://github.com/codyloyd/sqlzoo-solutions/blob/master/SQLZOO_solutions.md#select-in-select
 
 #6 
 SELECT name 
